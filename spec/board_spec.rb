@@ -8,7 +8,7 @@ describe Board do
   end
 
   it 'allows a player to take a position' do
-    board.take_position 'X', [0,1]
+    board.take_position 'X', "0,1"
 
     expect(board.board[0][1]).to eql('X')
   end
