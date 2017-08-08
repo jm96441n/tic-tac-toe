@@ -1,5 +1,6 @@
 class Board
   attr_accessor :gameboard
+
   def initialize
     @gameboard = [[' ',' ',' '],[' ',' ',' '], [' ',' ',' ']]
   end
@@ -61,30 +62,18 @@ class Board
 
   def check_left_diagonal?
     check_arr = []
-    i = 0
-    until i > 2
-      check_arr << @gameboard[i][i]
-      i += 1
+    @gameboard.collect.with_index do |row, idx|
+      check_arr << row[idx]
     end
-    if check_arr.uniq.length == 1 && check_arr.first != ' '
-      return true
-    end
-    return false
+    check_arr.uniq.length == 1 && check_arr.first != ' '
   end
 
   def check_right_diagonal?
     check_arr = []
-    i = 0
-    j = 2
-    until i > 2
-      check_arr << @gameboard[i][j]
-      i += 1
-      j -= 1
+    @gameboard.collect.with_index do |row, idx|
+      check_arr << row.reverse[idx]
     end
-    if check_arr.uniq.length == 1 && check_arr.first != ' '
-      return true
-    end
-    return false
+    check_arr.uniq.length == 1 && check_arr.first != ' '
   end
 
   def full_board?
