@@ -75,6 +75,20 @@ describe Game do
   end
 
   it 'checks for a diagonal win' do
+    loser   = [['X',' ',' '],[' ',' ',' '], [' ',' ','X']]
+    winner1 = [['X',' ',' '],[' ','X',' '], [' ',' ','X']]
+    winner2 = [[' ',' ','X'],[' ','X',' '], ['X',' ',' ']]
 
+    game.board = loser
+
+    expect(game.won?).to eql(false)
+
+    game.board = winner1
+
+    expect(game.won?).to eql(true)
+
+    game.board = winner2
+
+    expect(game.won?).to eql(true)
   end
 end
