@@ -16,4 +16,8 @@ describe Game do
 
     expect(game.computer).to eql(computer)
   end
+
+  it 'initializes with the current player who picked "X"' do
+    expect(game.current_player).to eql(computer)
+  end
 end
