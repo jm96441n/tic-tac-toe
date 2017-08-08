@@ -10,4 +10,10 @@ describe Game do
   it 'starts a game with an empty board' do
     expect(game.board.gameboard).to eql([[' ',' ',' '],[' ',' ',' '], [' ',' ',' ']])
   end
+
+  it 'starts the game with a computer and human player' do
+    expect(game.user).to eql(player)
+
+    expect(game.computer).to eql(computer)
+  end
 end
