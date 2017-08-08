@@ -1,7 +1,7 @@
 require_relative './board'
 require_relative './game'
 require_relative './player'
-require 'pry'
+
 def wanna_play_a_game
   puts "Would you like to play tic-tac-toe? Press Y/N"
   choice = gets.chomp
@@ -41,6 +41,24 @@ def begin_game letter
   game.play
 end
 
+def play_again?
+  puts "Good game, want to play again? Y/N"
+  choice = gets.chomp.upcase
+  until choice.upcase == 'Y' || choice.upcase == 'N'
+    puts "Oops, looks like you didn't input a 'Y' or 'N', try again"
+    choice = gets.chomp.upcase
+  end
+  case choice
+  when 'Y'
+    true
+  when 'N'
+    false
+  end
+end
+
 wanna_play_a_game
+until !play_again?
+  pick_a_letter
+end
 
 
