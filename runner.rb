@@ -1,6 +1,6 @@
-require_relative './board'
 require_relative './game'
-require_relative './player'
+require_relative './computer'
+require_relative './user'
 
 def wanna_play_a_game
   puts "Would you like to play tic-tac-toe? Press Y/N"
@@ -31,11 +31,11 @@ end
 def begin_game letter
   case letter.upcase
   when 'X'
-    computer = Player.new('O')
-    user     = Player.new('X')
+    computer = Computer.new('O')
+    user     = User.new('X')
   when 'O'
-    computer = Player.new('X')
-    user     = Player.new('O')
+    computer = Computer.new('X')
+    user     = User.new('O')
   end
   game = Game.new(computer, user)
   game.play

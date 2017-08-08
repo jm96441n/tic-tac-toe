@@ -19,22 +19,12 @@ class Game
         puts "Board is full, nobody won!"
         return
       end
-      make_move
+      @current_player.make_move @board
       switch_current_player
       @board.display_current_board
     end
     puts winner
   end
-
-  def make_move
-    case @current_player
-    when @user
-      @user.user_move @board
-    when @computer
-      @computer.computer_move @board
-    end
-  end
-
 
   def switch_current_player
     case @current_player
