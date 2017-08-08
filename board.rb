@@ -17,6 +17,12 @@ class Board
     @gameboard[position_arr.first][position_arr.last] != ' '
   end
 
+  def valid_move? position
+    position_arr = split_and_format_position position
+
+    !!(@gameboard[position_arr.first] && @gameboard[position_arr.first][position_arr.last])
+  end
+
   def split_and_format_position position
     position_arr = position.split('')
 

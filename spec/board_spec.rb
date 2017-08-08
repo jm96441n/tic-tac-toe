@@ -24,4 +24,8 @@ describe Board do
 
     expect(board.full_board?).to be true
   end
+
+  it 'only accepts moves on a valid position' do
+    expect(board.valid_move? '5,10').to eq false
+  end
 end
