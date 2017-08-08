@@ -18,4 +18,10 @@ describe Board do
 
     expect(board.space_taken?('1,2')).to be true
   end
+
+  it 'checks for a full board with no winner' do
+    board.gameboard = [['X','O','X'],['O','X','O'], ['O','X','O']]
+
+    expect(board.full_board?).to be true
+  end
 end

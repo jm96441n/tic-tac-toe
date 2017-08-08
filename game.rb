@@ -13,10 +13,17 @@ class Game
 
 
   def play
+    @board.display_current_board if @current_player == @user
     until won?
-      switch_current_player
       make_move
+      switch_current_player
       @board.display_current_board
+
+      if @board.full_board?
+        puts "Board is full, nobody won!"
+        return
+      end
+
     end
     puts winner
   end
@@ -31,7 +38,7 @@ class Game
   end
 
   def user_move
-    puts "Select a space by putting in the coordinates of the space you would like, starting from the top left (For example, the top left space would be '1,1', the top right space would be '1,3')"
+    puts "Select a space by putting in the coordinates of the space you would like, starting from the top left (For example, the top left space would be '1,1', the top right space would be '1,3') in the format of: Row, Column"
     position = gets.chomp
     if @board.space_taken? position
       puts "Please select another space, this space is taken"
@@ -60,65 +67,15 @@ class Game
   end
 
   def won?
-    check_horizontal? || check_vertical? || check_diagonal?
-  end
-
-  def check_horizontal?
-    self.board.gameboard.each do |row|
-      if row.uniq.length == 1 && row.first != ' '
-        return true
-      end
-    end
-    return false
-  end
-
-  def check_vertical?
-    self.board.gameboard.transpose.each do |col|
-      if col.uniq.length == 1 && col.first != ' '
-        return true
-      end
-    end
-    return false
-  end
-
-  def check_diagonal?
-    check_left_diagonal? || check_right_diagonal?
-  end
-
-  def check_left_diagonal?
-    check_arr = []
-    i = 0
-    until i > 2
-      check_arr << self.board.gameboard[i][i]
-      i += 1
-    end
-    if check_arr.uniq.length == 1 && check_arr.first != ' '
-      return true
-    end
-    return false
-  end
-
-  def check_right_diagonal?
-    check_arr = []
-    i = 0
-    j = 2
-    until i > 2
-      check_arr << self.board.gameboard[i][j]
-      i += 1
-      j -= 1
-    end
-    if check_arr.uniq.length == 1 && check_arr.first != ' '
-      return true
-    end
-    return false
+    @board.check_horizontal? || @board.check_vertical? || @board.check_diagonal?
   end
 
   def winner
     case @current_player
     when @user
-      puts "You won!"
-    when @computer
       puts "Good game, but the computer got the best of you, try again!"
+    when @computer
+      puts "You won!"
     end
   end
 end
