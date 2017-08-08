@@ -10,8 +10,4 @@ class Board
       @gameboard[position_arr.first.to_i][position_arr.last.to_i] = letter
     end
   end
-
-  def game_won?
-
-  end
 end
