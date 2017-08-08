@@ -5,11 +5,11 @@ require_relative '../board'
 describe Game do
   let(:computer) { Player.new('X') }
   let(:player)   { Player.new('O') }
-  let(:game)     { Game.new(computer, player ) }
+  let(:game)     { Game.new(computer, player) }
   let(:board)    { game.board}
 
   it 'starts a game with an empty board' do
-    expect(board).to eql([[' ',' ',' '],[' ',' ',' '], [' ',' ',' ']])
+    expect(board.gameboard).to eql([[' ',' ',' '],[' ',' ',' '], [' ',' ',' ']])
   end
 
   it 'starts the game with a computer and human player' do
@@ -34,19 +34,19 @@ describe Game do
     winner2 = [[' ',' ',' '],['X','X','X'], [' ',' ',' ']]
     winner3 = [[' ',' ',' '],[' ',' ',' '], ['X','X','X']]
 
-    game.board = loser
+    game.board.gameboard = loser
 
     expect(game.won?).to eql(false)
 
-    game.board = winner1
+    game.board.gameboard = winner1
 
     expect(game.won?).to eql(true)
 
-    game.board = winner2
+    game.board.gameboard = winner2
 
     expect(game.won?).to eql(true)
 
-    game.board = winner3
+    game.board.gameboard = winner3
 
     expect(game.won?).to eql(true)
   end
@@ -57,19 +57,19 @@ describe Game do
     winner2 = [[' ','X',' '],[' ','X',' '], [' ','X',' ']]
     winner3 = [[' ',' ','X'],[' ',' ','X'], [' ',' ','X']]
 
-    game.board = loser
+    game.board.gameboard = loser
 
     expect(game.won?).to eql(false)
 
-    game.board = winner1
+    game.board.gameboard = winner1
 
     expect(game.won?).to eql(true)
 
-    game.board = winner2
+    game.board.gameboard = winner2
 
     expect(game.won?).to eql(true)
 
-    game.board = winner3
+    game.board.gameboard = winner3
 
     expect(game.won?).to eql(true)
   end
@@ -79,15 +79,15 @@ describe Game do
     winner1 = [['X',' ',' '],[' ','X',' '], [' ',' ','X']]
     winner2 = [[' ',' ','X'],[' ','X',' '], ['X',' ',' ']]
 
-    game.board = loser
+    game.board.gameboard = loser
 
     expect(game.won?).to eql(false)
 
-    game.board = winner1
+    game.board.gameboard = winner1
 
     expect(game.won?).to eql(true)
 
-    game.board = winner2
+    game.board.gameboard = winner2
 
     expect(game.won?).to eql(true)
   end
