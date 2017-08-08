@@ -6,7 +6,8 @@ class Board
 
   def take_position letter, position
     position_arr = position.split('')
-
-    @board[position_arr.first.to_i][position_arr.last.to_i] = letter
+    if @board[position_arr.first.to_i][position_arr.last.to_i] == ' '
+      @board[position_arr.first.to_i][position_arr.last.to_i] = letter
+    end
   end
 end
