@@ -8,7 +8,7 @@ class Game
     @board          = Board.new()
     @computer       = computer
     @user           = user
-    @current_player = @user.letter == 'X' ? @user : @computer
+    @current_player = choose_first_player
   end
 
 
@@ -48,5 +48,10 @@ class Game
       puts "You won!"
       return @user
     end
+  end
+
+  def choose_first_player
+    num = rand(1..10)
+    num.even? ? @user : @computer
   end
 end
