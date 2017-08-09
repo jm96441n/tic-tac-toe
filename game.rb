@@ -24,8 +24,6 @@ class Game
       switch_current_player
       @board.display_current_board
     end
-
-    puts winner
   end
 
   def switch_current_player
@@ -45,8 +43,10 @@ class Game
     case @current_player
     when @user
       puts "Good game, but the computer got the best of you, try again!"
+      return @computer
     when @computer
       puts "You won!"
+      return @user
     end
   end
 end
