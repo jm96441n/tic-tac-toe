@@ -17,7 +17,6 @@ def wanna_play_a_game
 end
 
 def pick_a_letter
-
   puts "Great! What letter would you like to play as? X or O?"
   letter = gets.chomp
   if letter.upcase != 'X' && letter.upcase != 'O'
