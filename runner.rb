@@ -10,6 +10,7 @@ class Runner
   def wanna_play_a_game
     puts "Would you like to play tic-tac-toe? Press Y/N"
     choice = gets.chomp
+
     case choice.upcase
     when "Y"
       pick_a_letter
@@ -24,6 +25,7 @@ class Runner
   def pick_a_letter
     puts "Great! What letter would you like to play as? X or O?"
     letter = gets.chomp
+
     if letter.upcase != 'X' && letter.upcase != 'O'
       puts "Oops, looks like you didn't pick an 'X' or an 'O', try again"
       pick_a_letter

@@ -8,6 +8,7 @@ class User < Player
     position   = get_input
     valid_move = board.valid_move?(position)
     free_space = !board.space_taken?(position)
+
     until valid_move && free_space
       if !valid_move
         puts "Please select a space that is on the board."

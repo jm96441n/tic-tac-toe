@@ -4,7 +4,7 @@ describe Board do
   let(:board) { Board.new }
 
   it 'creates a 3x3 board' do
-    expect(board.gameboard).to eql([[' ',' ',' '],[' ',' ',' '], [' ',' ',' ']])
+    expect(board.gameboard).to eql([ [' ',' ',' '], [' ',' ',' '], [' ',' ',' '] ])
   end
 
   it 'allows a player to take a position' do
@@ -20,7 +20,7 @@ describe Board do
   end
 
   it 'checks for a full board with no winner' do
-    board.gameboard = [['X','O','X'],['O','X','O'], ['O','X','O']]
+    board.gameboard = [ ['X','O','X'], ['O','X','O'], ['O','X','O'] ]
 
     expect(board.full_board?).to be true
   end

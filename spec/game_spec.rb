@@ -9,7 +9,7 @@ describe Game do
   let(:board)    { game.board}
 
   it 'starts a game with an empty board' do
-    expect(board.gameboard).to eql([[' ',' ',' '],[' ',' ',' '], [' ',' ',' ']])
+    expect(board.gameboard).to eql([ [' ',' ',' '], [' ',' ',' '], [' ',' ',' '] ])
   end
 
   it 'starts the game with a computer and human player' do
@@ -26,10 +26,10 @@ describe Game do
   end
 
   it 'checks for a horizontal win' do
-    loser   = [['X','X',' '],[' ',' ',' '], [' ',' ',' ']]
-    winner1 = [['X','X','X'],[' ',' ',' '], [' ',' ',' ']]
-    winner2 = [[' ',' ',' '],['X','X','X'], [' ',' ',' ']]
-    winner3 = [[' ',' ',' '],[' ',' ',' '], ['X','X','X']]
+    loser   = [ ['X','X',' '], [' ',' ',' '], [' ',' ',' '] ]
+    winner1 = [ ['X','X','X'], [' ',' ',' '], [' ',' ',' '] ]
+    winner2 = [ [' ',' ',' '], ['X','X','X'], [' ',' ',' '] ]
+    winner3 = [ [' ',' ',' '], [' ',' ',' '], ['X','X','X'] ]
 
     game.board.gameboard = loser
 
@@ -49,10 +49,10 @@ describe Game do
   end
 
   it 'checks for a vertical win' do
-    loser   = [['X',' ',' '],['X',' ',' '], [' ',' ',' ']]
-    winner1 = [['X',' ',' '],['X',' ',' '], ['X',' ',' ']]
-    winner2 = [[' ','X',' '],[' ','X',' '], [' ','X',' ']]
-    winner3 = [[' ',' ','X'],[' ',' ','X'], [' ',' ','X']]
+    loser   = [ ['X',' ',' '], ['X',' ',' '], [' ',' ',' '] ]
+    winner1 = [ ['X',' ',' '], ['X',' ',' '], ['X',' ',' '] ]
+    winner2 = [ [' ','X',' '], [' ','X',' '], [' ','X',' '] ]
+    winner3 = [ [' ',' ','X'], [' ',' ','X'], [' ',' ','X'] ]
 
     game.board.gameboard = loser
 
@@ -72,9 +72,9 @@ describe Game do
   end
 
   it 'checks for a diagonal win' do
-    loser   = [['X',' ',' '],[' ',' ',' '], [' ',' ','X']]
-    winner1 = [['X',' ',' '],[' ','X',' '], [' ',' ','X']]
-    winner2 = [[' ',' ','X'],[' ','X',' '], ['X',' ',' ']]
+    loser   = [ ['X',' ',' '], [' ',' ',' '], [' ',' ','X'] ]
+    winner1 = [ ['X',' ',' '], [' ','X',' '], [' ',' ','X'] ]
+    winner2 = [ [' ',' ','X'], [' ','X',' '], ['X',' ',' '] ]
 
     game.board.gameboard = loser
 

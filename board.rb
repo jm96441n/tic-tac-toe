@@ -2,7 +2,7 @@ class Board
   attr_accessor :gameboard
 
   def initialize
-    @gameboard = [[' ',' ',' '],[' ',' ',' '], [' ',' ',' ']]
+    @gameboard = [ [' ',' ',' '], [' ',' ',' '], [' ',' ',' '] ]
   end
 
   def take_position letter, position
