@@ -28,7 +28,7 @@ class Board
 
     row = position_arr.first.to_i - 1
     col = position_arr.last.to_i - 1
-    [row,col]
+    [ row, col ]
   end
 
   def display_current_board
@@ -44,40 +44,23 @@ class Board
     puts "3 " + @gameboard[2].join('|')
   end
 
-   def check_horizontal?
-    @gameboard.each do |row|
+  def check_straight_line?
+    board = @gameboard.transpose + @gameboard
+
+    board.each do |row|
       if row.uniq.length == 1 && row.first != ' '
-        return true
+          return true
+        end
       end
-    end
     return false
   end
 
-  def check_vertical?
-    @gameboard.transpose.each do |col|
-      if col.uniq.length == 1 && col.first != ' '
-        return true
-      end
-    end
-    return false
-  end
-
-  def check_diagonal?
-    check_left_diagonal? || check_right_diagonal?
-  end
-
-  def check_left_diagonal?
+  def check_diagonal? direction
     check_arr = []
-    @gameboard.collect.with_index do |row, idx|
+    board     = direction == 'left' ? @gameboard : @gameboard.map{ |ele| ele.reverse}
+
+    board.collect.with_index do |row, idx|
       check_arr << row[idx]
-    end
-    check_arr.uniq.length == 1 && check_arr.first != ' '
-  end
-
-  def check_right_diagonal?
-    check_arr = []
-    @gameboard.collect.with_index do |row, idx|
-      check_arr << row.reverse[idx]
     end
     check_arr.uniq.length == 1 && check_arr.first != ' '
   end

@@ -14,6 +14,7 @@ class Game
 
   def play
     @board.display_current_board if @current_player == @user
+
     until won?
       if @board.full_board?
         puts "Board is full, nobody won!"
@@ -23,6 +24,7 @@ class Game
       switch_current_player
       @board.display_current_board
     end
+
     puts winner
   end
 
@@ -36,7 +38,7 @@ class Game
   end
 
   def won?
-    @board.check_horizontal? || @board.check_vertical? || @board.check_diagonal?
+    @board.check_straight_line? || @board.check_diagonal?("right") || @board.check_diagonal?("left")
   end
 
   def winner
