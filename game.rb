@@ -38,7 +38,7 @@ class Game
   end
 
   def won?
-    @board.check_straight_line? || @board.check_diagonal?("right") || @board.check_diagonal?("left")
+    @board.check_straight_line? || @board.check_diagonal?
   end
 
   def winner

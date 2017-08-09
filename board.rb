@@ -55,14 +55,16 @@ class Board
     return false
   end
 
-  def check_diagonal? direction
-    check_arr = []
-    board     = direction == 'left' ? @gameboard : @gameboard.map{ |ele| ele.reverse}
+  def check_diagonal?
+    check_right_arr = []
+    check_left_arr  = []
 
-    board.collect.with_index do |row, idx|
-      check_arr << row[idx]
+    @gameboard.collect.with_index do |row, idx|
+      check_left_arr << row[idx]
+      check_right_arr << row.reverse[idx]
     end
-    check_arr.uniq.length == 1 && check_arr.first != ' '
+
+    (check_right_arr.uniq.length == 1 && check_right_arr.first != ' ') || (check_left_arr.uniq.length == 1 && check_left_arr.first != ' ')
   end
 
   def full_board?
