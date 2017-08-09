@@ -15,5 +15,4 @@ describe User do
 
     expect(board.gameboard).to eql([[' ','X',' '],[' ',' ',' '], [' ',' ',' ']])
   end
-
 end
