@@ -19,6 +19,7 @@ describe Game do
   end
 
   it 'switches the current player' do
+    game.current_player = computer
     game.switch_current_player
 
     expect(game.current_player).to eql(player)
