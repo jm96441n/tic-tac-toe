@@ -12,6 +12,8 @@
 
    To play the game, first clone down the repo. Then, within your terminal navigate to the cloned repo, and run:
    
-   `ruby runner.rb`
+   ```ruby
+    ruby runner.rb
+   ```
    
    and follow the directions. Have fun!
