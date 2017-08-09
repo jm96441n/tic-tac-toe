@@ -13,11 +13,8 @@ class Board
 
   def space_taken? position
     position_arr = split_and_format_position position
-    if @gameboard[position_arr.first]
-      @gameboard[position_arr.first][position_arr.last] != ' '
-    else
-      false
-    end
+
+    @gameboard[position_arr.first] ? @gameboard[position_arr.first][position_arr.last] != ' ' : false
   end
 
   def valid_move? position
